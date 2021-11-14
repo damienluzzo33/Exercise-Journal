@@ -3,7 +3,16 @@ const Workouts = require("../models/workouts");
 
 router.get("/api/workouts", async (req, res) => {
     try {
-        const dbWorkouts = await Workouts.find({}).sort({ day: 1 });
+        const dbWorkouts = await Workouts.find({}).aggregate( [
+            {
+                $addFields: {
+                    totalDuration: {
+                        $sum: "$exercises.duration"
+                    }
+                }
+            }
+        ] ).sort({ day: 1 });
+        console.log(dbWorkouts)
         if (!dbWorkouts) {
             res.status(400).json({message: "You have no workouts!"})
         }
@@ -29,15 +38,6 @@ router.post("/api/workouts", async (req, res) => {
     }
 });
 
-// {
-//     type: 'resistance',
-//     name: 'Bicep Curl',
-//     duration: 20,
-//     weight: 100,
-//     reps: 10,
-//     sets: 4,
-// }
-
 router.put("/api/workouts/:id", async (req, res) => {
     try {
         await Workouts.updateOne(
@@ -50,24 +50,23 @@ router.put("/api/workouts/:id", async (req, res) => {
     }
 });
 
-// const res = await Users.aggregate([
-//     { $group: { _id: null, maxBalance: { $max: '$balance' }}},
-//     { $project: { _id: 0, maxBalance: 1 }}
-//   ]);
-
-// { $sum: <expression> }
-
-// db.scores.aggregate( [
-//     {
-//       $addFields: {
-//         totalHomework: { $sum: "$homework" } ,
-//         totalQuiz: { $sum: "$quiz" }
-//       }
-//     },
-
 router.get("/api/workouts/range", async (req, res) => {
     try {
-        const workoutRange = await Workouts.find({}).sort({ day: -1 }).limit(7);
+        const workoutRange = await Workouts.find({}).aggregate( [
+            {
+                $addFields: {
+                    totalDuration: {
+                        $sum: "$exercises.duration"
+                    }
+                }
+            }
+        ] ).sort({ day: -1 }).limit(7);
+        console.log(workoutRange);
+        if (workoutRange) {
+            res.status(200).json(workoutRange)
+        } else {
+            res.status(404).json({message: "No Workouts!"})
+        }
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -75,5 +74,4 @@ router.get("/api/workouts/range", async (req, res) => {
 })
 
 
-
-
+module.exports = router;
