@@ -1,9 +1,17 @@
 const router = require("express").Router();
 const Workouts = require("../models/workouts");
 
+router.get("/exercise", (req, res) => {
+    res.sendFile('./exercise.html', {root: "public" })
+});
+
+router.get("/stats", (req, res) => {
+    res.sendFile('./stats.html',  {root: "public"});
+});
+
 router.get("/api/workouts", async (req, res) => {
     try {
-        const dbWorkouts = await Workouts.find({}).aggregate( [
+        const dbWorkouts = await Workouts.aggregate( [
             {
                 $addFields: {
                     totalDuration: {
@@ -40,10 +48,11 @@ router.post("/api/workouts", async (req, res) => {
 
 router.put("/api/workouts/:id", async (req, res) => {
     try {
-        await Workouts.updateOne(
+        const updatedWorkout = await Workouts.updateOne(
             { _id: req.params.id },
             { $push: { "exercises": req.body } }
         );
+        res.status(200).json(updatedWorkout);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -52,7 +61,7 @@ router.put("/api/workouts/:id", async (req, res) => {
 
 router.get("/api/workouts/range", async (req, res) => {
     try {
-        const workoutRange = await Workouts.find({}).aggregate( [
+        const workoutRange = await Workouts.aggregate( [
             {
                 $addFields: {
                     totalDuration: {
@@ -71,7 +80,6 @@ router.get("/api/workouts/range", async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
-})
-
+});
 
 module.exports = router;
