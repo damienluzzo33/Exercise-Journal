@@ -2,7 +2,7 @@
 
 ## Description
 
-[Deployed Application]()
+[Deployed Application](https://my-exercise-journal.herokuapp.com/)
 
 Health and fitness is trending, and with so much personal growth to track and remember, today's fitness enthusiasts need an convenient and straight-forward way to record their progress and gains. This Exercise Journal was developed to simplify and streamline this process so that you can track your goals and reach your fitness goals.
 
