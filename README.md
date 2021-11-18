@@ -45,10 +45,10 @@ If you are interested in improving or modifying this application for your own pe
 Screenshots:
 
 Desktop:
-![Desktop view of application]()
+![Desktop view of application](/public/images/exercise-journal-desktop.png)
 
 Mobile:
-![Mobile view of application]()
+![Mobile view of application](/public/images/exercise-journal-mobile.png)
 
 ## Credits
 
