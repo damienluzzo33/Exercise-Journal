@@ -10,9 +10,11 @@ Tired of forgetting what you ran or lifted last week? Looking for a way to stay 
 
 If you are interested in improving or modifying this application for your own personal usage, please go ahead and clone down the repository and transform it into your own amazing Team Profile Generator.
 
-[Link to video demo of app]()
+<!-- RECORD THIS -->
+[Link to video demo of app]( )
 
-![Giphy demo of project]()
+<!-- RECORD THIS -->
+![Giphy demo of project]( )
 
 ## Table of Contents
 
