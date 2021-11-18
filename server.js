@@ -2,6 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 const router = require("./routes/workouts");
+require("dotenv").config();
 
 const PORT = process.env.PORT || 3000;
 
