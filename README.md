@@ -8,13 +8,11 @@ Health and fitness is trending, and with so much personal growth to track and re
 
 Tired of forgetting what you ran or lifted last week? Looking for a way to stay on top of your progress without wasting paper and losing track of your notes? Then this is the app for you! Simply launch the application and begin tracking your exercises with this user-friendly exercise journal. Enter the exercises you performed today, add it, and then check out your day-to-day exercise log whenever you need to reference your cardio and resistance progress.
 
-If you are interested in improving or modifying this application for your own personal usage, please go ahead and clone down the repository and transform it into your own amazing Team Profile Generator.
+If you are interested in improving or modifying this application for your own personal usage, please go ahead and clone down the repository and transform it into your own amazing Exercise Journal.
 
-<!-- RECORD THIS -->
-[Link to video demo of app]( )
+[Link to video demo of app](https://drive.google.com/file/d/1ui4hG3CyRtJpAymuiSyHwxlzJNpqpFHm/view?usp=sharing)
 
-<!-- RECORD THIS -->
-![Giphy demo of project]( )
+![Giphy demo of project](/public/images/exercise-journal-gif.gif)
 
 ## Table of Contents
 
@@ -43,22 +41,21 @@ If you are interested in improving or modifying this application for your own pe
 
 - Finally, simply navigate to http://localhost:3000/ and start tracking your exercises!
 
+## Screenshots
 
-Screenshots:
-
-Desktop:
+### Desktop:
 ![Desktop view of application](/public/images/exercise-journal-desktop.png)
 
-Mobile:
+### Mobile:
 ![Mobile view of application](/public/images/exercise-journal-mobile.png)
 
 ## Credits
 
 Assets:
 
-+ [Express]()
++ [Express](https://github.com/expressjs/express)
 
-+ [Mongoose]()
++ [Mongoose](https://github.com/Automattic/mongoose)
 
 ## License
 
@@ -68,7 +65,7 @@ Assets:
 
 + User is able to see their most recent exercise and can navigate to an exercise log to view a chart of the exercise stats.
 
-+ User is also able to enter exercises they performed today which are then stored in the cloud with MongoDB Atlas.
++ User is also able to enter cardio and resistance exercises they performed today which are then stored in the cloud with MongoDB Atlas.
 
 ## How to Contribute
 
